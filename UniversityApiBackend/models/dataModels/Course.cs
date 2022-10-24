@@ -2,6 +2,9 @@
 
 namespace UniversityApiBackend.models.dataModels
 {
+
+    public enum Level { basic, Intermediate, Advanced };
+
     public class Course: BaseEntity
     {
         [Required, StringLength(100)]
@@ -21,6 +24,17 @@ namespace UniversityApiBackend.models.dataModels
 
         [StringLength(100)]
         public string Requirements { get; set; } = string.Empty;
-        public enum level {basic, Intermediate, Advanced};
+        
+        public Level Level { get; set; } = Level.basic;
+
+        //relacionar con tabla categorias(muchos a muchos)
+        [Required]
+        public ICollection<Category> Categories { get; set; } = new List<Category>();
+        //relacion con tabla index
+        [Required]
+        public index index{ get; set; } = new index();
+        //relacion n-m con tabla estudiantes
+        [Required]
+        public ICollection<Student> Students { get; set; } = new List<Student>();
     }
 }

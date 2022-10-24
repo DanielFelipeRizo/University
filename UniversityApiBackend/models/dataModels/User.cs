@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace UniversityApiBackend.models.dataModels
 {
@@ -13,5 +14,6 @@ namespace UniversityApiBackend.models.dataModels
         public string Email { get; set; } = string.Empty;
         [Required]
         public string Password { get; set; } = string.Empty;
+
     }
 }
